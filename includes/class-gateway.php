@@ -33,6 +33,20 @@ class APWC_Gateway extends WC_Payment_Gateway {
 
         add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
         add_action( 'woocommerce_api_apwc_gateway', array( $this, 'ipn_callback' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+
+    }
+
+    /**
+     * Enqueue Scripts | Action Callback
+     *
+     * @author Syed Muhammad Usman (@smusman98) <smusman98@gmail.com>
+     * @since 1.0
+     * @version 1.0
+     */
+    public function enqueue_scripts() {
+
+        wp_enqueue_style( 'aurpay', AURPAY_PLUGIN_URL . 'assets/css/style.css', false, APWC_VERSION );
 
     }
 
@@ -67,7 +81,7 @@ class APWC_Gateway extends WC_Payment_Gateway {
             'currency_selection_text' => array(
                 'title'       => 'Checkout Currency Selection Label',
                 'type'        => 'text',
-                'default'     =>  'Select Currency',
+                'default'     =>  'Select a cryptocurrency',
                 'description' => __( 'Please enter your AURPay Public Key, this is needed in order to take payment.', 'aurpay-wc' ),
             )
         );

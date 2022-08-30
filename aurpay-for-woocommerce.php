@@ -28,6 +28,16 @@ if ( ! defined( 'APWC_PLUGIN_URL' ) ) {
     define( 'APWC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 }
 
+if( !defined( 'AURPAY_PLUGIN_FILE' ) ) {
+    define( 'AURPAY_PLUGIN_FILE', __FILE__ );
+}
+
+if( !defined( 'AURPAY_PLUGIN_URL' ) ) {
+    define( 'AURPAY_PLUGIN_URL', plugins_url( '/', AURPAY_PLUGIN_FILE ) );
+}
+
+
+
 require dirname( APWC_PLUGIN_FILE ) . '/includes/class-apwc-init.php';
 
 add_action( 'plugins_loaded', 'load_apwc' );
