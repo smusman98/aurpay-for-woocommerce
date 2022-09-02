@@ -210,7 +210,7 @@ class APWC_Gateway extends WC_Payment_Gateway {
                 'currency'  => $order->get_currency(),
                 'price'     => $order->get_total(),
                 'url'       => site_url(),
-                'callback_url'  =>  site_url() . '/wp-json/wcaurpay/v1/complete-payment?order_id=' . $order_id,
+                'callback_url'  =>  site_url() . '/?wc-api=APWC_Gateway' . '&order_id=' . $order_id,
             ]
 
         ];
@@ -267,23 +267,22 @@ class APWC_Gateway extends WC_Payment_Gateway {
      */
     public function ipn_callback() {
 
-        $request = file_get_contents( 'php://input' );
-        $request = json_decode( $request, true );
-        //Invalid Call, Order ID doesn't exist.
-        if( !array_key_exists( 'order_id', $request ) ) {
-            die( 'Invalid Call' );
-        }
-        $order = wc_get_order( $request['order_id'] );
-        $order_id = $order->get_id();
-        $order = new WC_Order( $order_id );
+            $order_id = isset( $_GET['order_id'] ) ? sanitize_text_field( $_GET['order_id'] ) : '';
 
-        $order->payment_complete();
+            try
+            {
+                $order = new WC_Order( $order_id );
 
-        delete_option( $order_id );
+                $order->update_status( 'completed', 'AURPay finished IPN Call.' );
 
-        wp_send_json_success( array(
-            'order_id' => $order_id,
-        ), 200 );
+			    delete_option( $order_id );
+
+                wp_send_json_success( array(
+                    'order_id' => $order_id,
+                ), 200 );
+            } catch (Exception $e) {
+                wp_send_json( array( 'message'	=>	'No order associated with this ID.' . $order_id . $e ), 400 );
+            }
 
     }
 
