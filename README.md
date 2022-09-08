@@ -147,11 +147,13 @@ Checkout this **[video tutorial](https://youtu.be/6iQdk7KOHd4)** or contact us v
 2. Setup the public key that you can get from Aurpay merchant dashboard, it’s a revenue platform that lets you solve for today, and scale for tomorrow.
 3. Setup the public key that you can get from Aurpay merchant dashboard, it’s a revenue platform that lets you solve for today, and scale for tomorrow.
 4. Aurpay is a global blockchain technology firm that enables businesses of all sizes to access enterprise-grade cross-border crypto payments.
-5. Easily accept and bill crypto to your customers using Aurpay dashboard. To Manage Crypto Payments. AURPAY’s products empower crypto payments for merchants to expand your business.
-6. Create an invoice by just adding customer and invoice details, amount and due date through an easy-to-use platform. Email or text your customer a payment link containing the invoice details to your customer with just a click. Get paid fast globally in your preferred cryptocurrency, and settle to your personal wallet within a few minutes, resulting in a 96% gas reduction.
-7. Accept payments and move money with smart contracts designed to manage your funds in a pure non-custodial way, use smart contracts to easily and securely accept payments towards the decentralized future.
-8. View Transaction Flow and Perform Reconciliation from Aurpay all-in-one merchant dashboard.
-9. Aurpay Payment Pages is the easiest way to accept payments with a custom-branded online store. Securely add seamless payment functionality to your online store instantly, with no coding required.
+5. Select your preferred cryptocurrency to pay. You can customize crypto options.
+6. Beautiful checkout page for better customer checkout experience. Merchants have 20% more conversion rate with Aurpay from our previous experience.
+7. Easily accept and bill crypto to your customers using Aurpay dashboard. To Manage Crypto Payments. AURPAY’s products empower crypto payments for merchants to expand your business.
+8. Create an invoice by just adding customer and invoice details, amount and due date through an easy-to-use platform. Email or text your customer a payment link containing the invoice details to your customer with just a click. Get paid fast globally in your preferred cryptocurrency, and settle to your personal wallet within a few minutes, resulting in a 96% gas reduction.
+9. Accept payments and move money with smart contracts designed to manage your funds in a pure non-custodial way, use smart contracts to easily and securely accept payments towards the decentralized future.
+10. View Transaction Flow and Perform Reconciliation from Aurpay all-in-one merchant dashboard.
+11. Aurpay Payment Pages is the easiest way to accept payments with a custom-branded online store. Securely add seamless payment functionality to your online store instantly, with no coding required.
 
 
 
