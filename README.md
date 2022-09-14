@@ -161,3 +161,6 @@ Checkout this **[video tutorial](https://youtu.be/6iQdk7KOHd4)** or contact us v
 
 = 1.0.0 =
 New: Create the Aurpay crypto payment plugin for WooCommerce merchants. Supports more than top 50+ crypto coins – Bitcoin, Ethereum, ERC20 tokens, Tron, TRX, TRC20 tokens, USDC, USDT, DAI & much more.
+
+= 1.0.1 =
+Add BTC Lightning Network currency support.

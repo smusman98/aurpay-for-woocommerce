@@ -103,6 +103,7 @@ class APWC_Gateway extends WC_Payment_Gateway {
             'USDC-ERC20' => 'USDC-ERC20',
             'USDT-ERC20' => 'USDT-ERC20',
             'DAI-ERC20'  => 'DAI-ERC20',
+            'BTC-LN'  => 'BTC-LightningNetwork',
             // 'BTC'        => 'BTC',
             // 'USDT-OMNI'  => 'USDT-OMNI',
             'TRX'        => 'TRX',
@@ -128,14 +129,15 @@ class APWC_Gateway extends WC_Payment_Gateway {
      * Get currency from chain
      *
      * @author Syed Muhammad Usman (@smusman98) <smusman98@gmail.com>
-     * @since 1.0
-     * @version 1.0
+     * @since 1.1
+     * @version 1.1
      */
     public function get_chain( $currency )
     {
         $ETH = array('ETH', 'USDC-ERC20', 'USDT-ERC20', 'DAI-ERC20');
         $BTC = array('BTC', 'USDT-OMNI');
         $TRX = array('TRX', 'USDT-TRC20', 'USDC-TRC20');
+        $BLN = array('BTC-LN');
 
         if(in_array($currency, $ETH)){
             return 'ETH';
@@ -145,6 +147,9 @@ class APWC_Gateway extends WC_Payment_Gateway {
         }
         if(in_array($currency, $TRX)){
             return 'TRX';
+        }
+        if(in_array($currency, $BLN)){
+            return 'BLN';
         }
 
     }
