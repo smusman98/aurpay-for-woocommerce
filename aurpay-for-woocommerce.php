@@ -4,7 +4,7 @@
  * Plugin URI: https://www.scintelligencia.com/
  * Author: SCI Intelligencia
  * Description: Allow WooCommerce user to checkout AURPay.
- * Version: 1.0
+ * Version: 1.0.1
  * Author: Syed Muhammad Usman
  * Author URI: https://www.linkedin.com/in/syed-muhammad-usman/
  * License: GPL v2 or later

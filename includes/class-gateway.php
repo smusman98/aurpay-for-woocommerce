@@ -26,6 +26,7 @@ class APWC_Gateway extends WC_Payment_Gateway {
         $this->has_fields = true;
         $this->method_title = 'AURPay';
         $this->description = $this->get_option( 'description' );
+        $this->public_key = $this->get_option( 'public_key' );
         $this->has_fields = false;
         $this->method_description = 'Allows customer to checkout with AURPay.';
         $this->init_form_fields();
@@ -102,6 +103,7 @@ class APWC_Gateway extends WC_Payment_Gateway {
             'USDC-ERC20' => 'USDC-ERC20',
             'USDT-ERC20' => 'USDT-ERC20',
             'DAI-ERC20'  => 'DAI-ERC20',
+            'BTC-LN'  => 'BTC-LightningNetwork',
             // 'BTC'        => 'BTC',
             // 'USDT-OMNI'  => 'USDT-OMNI',
             'TRX'        => 'TRX',
@@ -127,14 +129,15 @@ class APWC_Gateway extends WC_Payment_Gateway {
      * Get currency from chain
      *
      * @author Syed Muhammad Usman (@smusman98) <smusman98@gmail.com>
-     * @since 1.0
-     * @version 1.0
+     * @since 1.1
+     * @version 1.1
      */
     public function get_chain( $currency )
     {
         $ETH = array('ETH', 'USDC-ERC20', 'USDT-ERC20', 'DAI-ERC20');
         $BTC = array('BTC', 'USDT-OMNI');
         $TRX = array('TRX', 'USDT-TRC20', 'USDC-TRC20');
+        $BLN = array('BTC-LN');
 
         if(in_array($currency, $ETH)){
             return 'ETH';
@@ -144,6 +147,9 @@ class APWC_Gateway extends WC_Payment_Gateway {
         }
         if(in_array($currency, $TRX)){
             return 'TRX';
+        }
+        if(in_array($currency, $BLN)){
+            return 'BLN';
         }
 
     }
@@ -267,8 +273,11 @@ class APWC_Gateway extends WC_Payment_Gateway {
      */
     public function ipn_callback() {
 
+
+            $public_key = isset( $_GET['public_key'] ) ? sanitize_text_field( $_GET['public_key'] ) : '';
             $order_id = isset( $_GET['order_id'] ) ? sanitize_text_field( $_GET['order_id'] ) : '';
 
+            if($public_key != $this->public_key)  wp_send_json( array( 'message'    =>	'Public Key Error: '.$public_key ), 400 );
             try
             {
                 $order = new WC_Order( $order_id );
@@ -278,6 +287,7 @@ class APWC_Gateway extends WC_Payment_Gateway {
 			    delete_option( $order_id );
 
                 wp_send_json_success( array(
+                    'a' => $this->public_key,
                     'order_id' => $order_id,
                 ), 200 );
             } catch (Exception $e) {

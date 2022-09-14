@@ -5,6 +5,7 @@
 
 select#aurpay_coin {
     width: 100%!important;
-    padding: 13px;
+    height: 2.2rem;
+    padding: 8px;
     border-color: #b5b5b5;
 }
